@@ -4,14 +4,15 @@
 <head>
     <meta charset="utf-8" />
     <title>Archives | yukiyukiyu</title>
-    <meta name="author" content="yukiyukiyu" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
+    <meta name="author" content="Yuki" />
+    <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
+    <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
     />
     <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="alternate" href="/atom.xml" title="yukiyukiyu" type="application/atom+xml">
     <link rel="preconnect" href="https://s4.zstatic.net" />
 <script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
 <link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
@@ -72,6 +73,11 @@
             <span>&ensp;Archives</span>
         </a>
         
+        <a href="/about">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
@@ -99,6 +105,15 @@
                     </div>
                 </a>
                 
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-user fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
             </div>
         </transition>
     </nav>
@@ -116,11 +131,20 @@
         <div class="timeline" data-title="helloworld">
             <div class="timeline-tail"></div>
             <div class="timeline-content">
-                <div class="item-time">2025/12/21</div>
-                <a href="/2025/12/21/hello-world/">
+                <div class="item-time">2026/1/2</div>
+                <a href="/2026/01/02/hello-world/">
                     <h3>Hello World</h3>
                 </a>
                 <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/test/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            test
+                        </a>
+                    </span>
                     
                     
                 </div>
@@ -132,7 +156,12 @@
 
             <footer id="footer">
     <div id="footer-wrap">
-        <div>yukiyukiyu</div>
+        <div>
+            &copy; 2022 - 2026 Yuki
+        </div>
+        <div>
+            <a href="/privacy/">Privacy Policy</a>
+        </div>
         
     </div>
 </footer>

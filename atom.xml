@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>yukiyukiyu</title>
+  <icon>https://yukiyukiyu.com/icon.png</icon>
+  
+  <link href="https://yukiyukiyu.com/atom.xml" rel="self"/>
+  
+  <link href="https://yukiyukiyu.com/"/>
+  <updated>2026-01-02T09:54:25.710Z</updated>
+  <id>https://yukiyukiyu.com/</id>
+  
+  <author>
+    <name>Yuki</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://yukiyukiyu.com/2026/01/02/hello-world/"/>
+    <id>https://yukiyukiyu.com/2026/01/02/hello-world/</id>
+    <published>2026-01-02T09:54:25.709Z</published>
+    <updated>2026-01-02T09:54:25.710Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    <category term="test" scheme="https://yukiyukiyu.com/categories/test/"/>
+    
+    
+  </entry>
+  
+</feed>
