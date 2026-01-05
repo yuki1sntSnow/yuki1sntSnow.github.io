@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Hello World. | yukiyukiyu</title>
+    <title>Hello World | yukiyukiyu</title>
     <meta name="author" content="Yuki" />
     <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
     <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
@@ -82,6 +82,11 @@
             <span>&ensp;About</span>
         </a>
         
+        <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
+            <i class="fa-solid fa-fish fa-fw"></i>
+            <span>&ensp;Mo-fish</span>
+        </a>
+        
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
@@ -118,6 +123,15 @@
                     </div>
                 </a>
                 
+                <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-fish fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Mo-fish</div>
+                    </div>
+                </a>
+                
             </div>
         </transition>
     </nav>
@@ -129,7 +143,7 @@
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
             <div class="article">
     <div>
-        <h1>Hello World.</h1>
+        <h1>Hello World</h1>
     </div>
     <div class="info">
         <span class="date">
