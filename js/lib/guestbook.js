@@ -36,7 +36,11 @@ mixins.guestbook = {
                 const result = await response.json();
                 
                 if (result.success) {
-                    this.messages = result.data.messages;
+                    // 转换时间为本地时区
+                    this.messages = result.data.messages.map(msg => ({
+                        ...msg,
+                        created_at: this.formatLocalTime(msg.created_at)
+                    }));
                     this.pagination = result.data.pagination;
                 } else {
                     console.error('加载留言失败:', result.error);
@@ -46,6 +50,21 @@ mixins.guestbook = {
             } finally {
                 this.loadingMessages = false;
             }
+        },
+        
+        // 将 UTC 时间转换为本地时间
+        formatLocalTime(utcTimeStr) {
+            // API 返回格式: "2026-01-06 07:13:29" (UTC)
+            const utcDate = new Date(utcTimeStr + ' UTC');
+            
+            // 格式化为本地时间
+            const year = utcDate.getFullYear();
+            const month = String(utcDate.getMonth() + 1).padStart(2, '0');
+            const day = String(utcDate.getDate()).padStart(2, '0');
+            const hours = String(utcDate.getHours()).padStart(2, '0');
+            const minutes = String(utcDate.getMinutes()).padStart(2, '0');
+            
+            return `${year}-${month}-${day} ${hours}:${minutes}`;
         },
         
         async submitMessage() {
