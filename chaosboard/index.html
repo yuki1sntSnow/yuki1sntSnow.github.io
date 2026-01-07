@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Hello World | yukiyukiyu</title>
+    <title>Chaos Board | yukiyukiyu</title>
     <meta name="author" content="Yuki" />
-    <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
-    <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
+    <meta name="description" content="Leave a message for yukiyukiyu - share your thoughts, suggestions, or just say hello!" />
+    <meta name="keywords" content="chaosboard, message board, comments, yukiyukiyu" />
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -44,9 +44,7 @@
 
 
 
-
-
-
+<script src="/js/lib/chaosboard.js"></script>
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -156,57 +154,77 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
-    <div>
-        <h1>Hello World</h1>
+            <div id="chaosboard">
+    <div class="chaosboard-container">
+        <h1><i class="fa-solid fa-comments"></i> 混沌留言板</h1>
+        <p class="chaosboard-subtitle">欢迎留下你的想法、建议或者只是打个招呼！</p>
+
+        <!-- 发布留言表单 -->
+        <div class="chaosboard-form">
+            <h3><i class="fa-solid fa-pen-to-square"></i> 发表留言</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="username"><i class="fa-solid fa-user"></i> 用户名</label>
+                    <input type="text" id="username" v-model="form.username" placeholder="请输入用户名" maxlength="100" />
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> 邮箱</label>
+                    <input type="email" id="email" v-model="form.email" placeholder="请输入邮箱" maxlength="200" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="content"><i class="fa-solid fa-message"></i> 留言内容</label>
+                <textarea id="content" v-model="form.content" placeholder="请输入留言内容..." maxlength="5000" rows="4"></textarea>
+            </div>
+            <button class="submit-btn" @click="submitMessage" :disabled="submitting">
+                <span v-if="!submitting"><i class="fa-solid fa-paper-plane"></i> 提交留言</span>
+                <span v-else><i class="fa-solid fa-spinner fa-spin"></i> 提交中...</span>
+            </button>
+            <div v-if="submitStatus" :class="['submit-status', submitStatus.type]">
+                {{ submitStatus.message }}
+            </div>
+        </div>
+
+        <!-- 留言列表 -->
+        <div class="chaosboard-messages">
+            <h3><i class="fa-solid fa-list"></i> 留言列表 <span v-if="pagination.total">({{ pagination.total }} 条)</span></h3>
+            
+            <div v-if="loadingMessages" class="loading-messages">
+                <i class="fa-solid fa-spinner fa-spin"></i> 加载中...
+            </div>
+
+            <div v-else-if="messages.length === 0" class="no-messages">
+                <i class="fa-solid fa-inbox"></i>
+                <p>暂无留言，来做第一个留言的人吧！</p>
+            </div>
+
+            <div v-else class="messages-list">
+                <div class="message-card" v-for="msg in messages" :key="msg.id">
+                    <div class="message-header">
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </div>
+                        <div class="message-info">
+                            <span class="message-username">{{ msg.username }}</span>
+                            <span class="message-date">{{ msg.created_at }}</span>
+                        </div>
+                    </div>
+                    <div class="message-content">{{ msg.content }}</div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <div v-if="pagination.totalPages > 1" class="pagination">
+                <button @click="loadMessages(pagination.page - 1)" :disabled="pagination.page <= 1">
+                    <i class="fa-solid fa-chevron-left"></i> 上一页
+                </button>
+                <span class="page-info">{{ pagination.page }} / {{ pagination.totalPages }}</span>
+                <button @click="loadMessages(pagination.page + 1)" :disabled="pagination.page >= pagination.totalPages">
+                    下一页 <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
     </div>
-    <div class="info">
-        <span class="date">
-            <span class="icon">
-                <i class="fa-solid fa-calendar fa-fw"></i>
-            </span>
-            2026/1/7
-        </span>
-        
-        <span class="category">
-            <a href="/categories/test/">
-                <span class="icon">
-                    <i class="fa-solid fa-bookmark fa-fw"></i>
-                </span>
-                test
-            </a>
-        </span>
-        
-        
-    </div>
-    
-    <div class="content" v-pre>
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-    </div>
-    
-    
-    
-    
-    <div id="comment">
-        <div id="giscus-container" class="giscus"></div>
-    </div>
-    
-    
-    
-    
 </div>
 
             <footer id="footer">
@@ -231,29 +249,6 @@
         
     </div>
     <script src="/js/main.js"></script>
-    
-    
-<script
-    src="https://giscus.app/client.js"
-    data-repo="yuki1sntSnow/yuki1sntSnow.github.io"
-    data-repo-id="R_kgDOQsmuGw"
-    data-category="General"
-    data-category-id="DIC_kwDOQsmuG84C0fIS"
-    data-mapping="pathname"
-    data-strict="0"
-    data-reactions-enabled="1"
-    data-emit-metadata="0"
-    data-input-position="bottom"
-    data-theme="preferred_color_scheme"
-    data-lang=""
-    crossorigin
-    async
-></script>
-
-
-
-
-
     
 </body>
 </html>
