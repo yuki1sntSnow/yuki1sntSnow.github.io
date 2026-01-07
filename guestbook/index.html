@@ -3,10 +3,10 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Archives | yukiyukiyu</title>
+    <title>Guestbook | yukiyukiyu</title>
     <meta name="author" content="Yuki" />
-    <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
-    <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
+    <meta name="description" content="Leave a message for yukiyukiyu - share your thoughts, suggestions, or just say hello!" />
+    <meta name="keywords" content="guestbook, message board, comments, yukiyukiyu" />
     <meta
         name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
@@ -43,6 +43,8 @@
 
 
 
+
+<script src="/js/lib/guestbook.js"></script>
 
 <link rel="stylesheet" href="/css/main.css" />
 
@@ -152,34 +154,76 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            
-<div id="archives">
-    
-    <div id="timeline-wrap" ref="timeline">
-        
-        <div class="timeline" data-title="helloworld">
-            <div class="timeline-tail"></div>
-            <div class="timeline-content">
-                <div class="item-time">2026/1/7</div>
-                <a href="/2026/01/07/hello-world/">
-                    <h3>Hello World</h3>
-                </a>
-                <div class="info">
-                    
-                    <span class="category">
-                        <a href="/categories/test/">
-                            <span class="icon">
-                                <i class="fa-solid fa-bookmark fa-fw"></i>
-                            </span>
-                            test
-                        </a>
-                    </span>
-                    
-                    
+            <div id="guestbook">
+    <div class="guestbook-container">
+        <h1><i class="fa-solid fa-comments"></i> 留言板</h1>
+        <p class="guestbook-subtitle">欢迎留下你的想法、建议或者只是打个招呼！</p>
+
+        <!-- 发布留言表单 -->
+        <div class="guestbook-form">
+            <h3><i class="fa-solid fa-pen-to-square"></i> 发表留言</h3>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="username"><i class="fa-solid fa-user"></i> 用户名</label>
+                    <input type="text" id="username" v-model="form.username" placeholder="请输入用户名" maxlength="100" />
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fa-solid fa-envelope"></i> 邮箱</label>
+                    <input type="email" id="email" v-model="form.email" placeholder="请输入邮箱" maxlength="200" />
                 </div>
             </div>
+            <div class="form-group">
+                <label for="content"><i class="fa-solid fa-message"></i> 留言内容</label>
+                <textarea id="content" v-model="form.content" placeholder="请输入留言内容..." maxlength="5000" rows="4"></textarea>
+            </div>
+            <button class="submit-btn" @click="submitMessage" :disabled="submitting">
+                <span v-if="!submitting"><i class="fa-solid fa-paper-plane"></i> 提交留言</span>
+                <span v-else><i class="fa-solid fa-spinner fa-spin"></i> 提交中...</span>
+            </button>
+            <div v-if="submitStatus" :class="['submit-status', submitStatus.type]">
+                {{ submitStatus.message }}
+            </div>
         </div>
-        
+
+        <!-- 留言列表 -->
+        <div class="guestbook-messages">
+            <h3><i class="fa-solid fa-list"></i> 留言列表 <span v-if="pagination.total">({{ pagination.total }} 条)</span></h3>
+            
+            <div v-if="loadingMessages" class="loading-messages">
+                <i class="fa-solid fa-spinner fa-spin"></i> 加载中...
+            </div>
+
+            <div v-else-if="messages.length === 0" class="no-messages">
+                <i class="fa-solid fa-inbox"></i>
+                <p>暂无留言，来做第一个留言的人吧！</p>
+            </div>
+
+            <div v-else class="messages-list">
+                <div class="message-card" v-for="msg in messages" :key="msg.id">
+                    <div class="message-header">
+                        <div class="message-avatar">
+                            <i class="fa-solid fa-user-circle"></i>
+                        </div>
+                        <div class="message-info">
+                            <span class="message-username">{{ msg.username }}</span>
+                            <span class="message-date">{{ msg.created_at }}</span>
+                        </div>
+                    </div>
+                    <div class="message-content">{{ msg.content }}</div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <div v-if="pagination.totalPages > 1" class="pagination">
+                <button @click="loadMessages(pagination.page - 1)" :disabled="pagination.page <= 1">
+                    <i class="fa-solid fa-chevron-left"></i> 上一页
+                </button>
+                <span class="page-info">{{ pagination.page }} / {{ pagination.totalPages }}</span>
+                <button @click="loadMessages(pagination.page + 1)" :disabled="pagination.page >= pagination.totalPages">
+                    下一页 <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
