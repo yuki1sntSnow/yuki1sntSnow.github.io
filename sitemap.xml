@@ -2,9 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://yukiyukiyu.com/2026/01/07/hello-world/</loc>
+    <loc>https://yukiyukiyu.com/2026/01/14/hello-world/</loc>
     
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -13,7 +13,7 @@
   <url>
     <loc>https://yukiyukiyu.com/404.html</loc>
     
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,7 +22,7 @@
   <url>
     <loc>https://yukiyukiyu.com/about/index.html</loc>
     
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -31,7 +31,7 @@
   <url>
     <loc>https://yukiyukiyu.com/chaosboard/index.html</loc>
     
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,7 +40,7 @@
   <url>
     <loc>https://yukiyukiyu.com/privacy/index.html</loc>
     
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -49,7 +49,7 @@
 
   <url>
     <loc>https://yukiyukiyu.com/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -59,7 +59,7 @@
   
   <url>
     <loc>https://yukiyukiyu.com/categories/test/</loc>
-    <lastmod>2026-01-07</lastmod>
+    <lastmod>2026-01-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
