@@ -1,0 +1,505 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇） | yukiyukiyu</title>
+    <meta name="author" content="Yuki" />
+    <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
+    <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="alternate" href="/atom.xml" title="yukiyukiyu" type="application/atom+xml">
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>YUKIYUKIYU</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/chaosboard">
+            <i class="fa-solid fa-comments fa-fw"></i>
+            <span>&ensp;ChaosBoard</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
+            <i class="fa-solid fa-fish fa-fw"></i>
+            <span>&ensp;Mo-fish</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;YUKIYUKIYU</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-user fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/chaosboard">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-comments fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">ChaosBoard</div>
+                    </div>
+                </a>
+                
+                <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-fish fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Mo-fish</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            
+<div id="post-wrap" class="has-card">
+    <div class="article">
+    <div>
+        <h1>不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/1/27
+        </span>
+        
+        <span class="category">
+            <a href="/categories/animate/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                animate
+            </a>
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="📺-追番记录整理"><a href="#📺-追番记录整理" class="headerlink" title="📺 追番记录整理"></a>📺 追番记录整理</h1><blockquote>
+<p><strong>📅 整理时间</strong>：2026.01<br><strong>🤖 备注</strong>：AI 辅助整理，如有疏漏欢迎捉虫<br><strong>📂 范围</strong>：入坑至今的追番记录 | 逆序排列</p>
+<hr>
+<p><strong>💭 碎碎念 &#x2F; 整理回顾：</strong></p>
+<p>离大谱。</p>
+<p>仔细想想，2008 年的我应该还完全没有能力主动去获取这些 ACG 资讯。<br>这里面列出的作品，估摸着全都是后来回过头去补课补上的。</p>
+<p>不禁陷入沉思 2008 年的我，到底在做什么呢……？</p>
+<p><strong>🏆 个人年度最佳：</strong></p>
+<ul>
+<li><strong>2008</strong>：🍡 《CLANNAD》</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="📅-2008-追番记录"><a href="#📅-2008-追番记录" class="headerlink" title="📅 2008 追番记录"></a>📅 2008 追番记录</h2><h3 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>CHAOS;HEAD</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>CLANNAD AFTER STORY</strong></td>
+<td align="left">催泪</td>
+</tr>
+<tr>
+<td align="left"><strong>地狱少女 三鼎</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>黑执事</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>机动战士高达00 第二季</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>龙与虎</strong></td>
+<td align="left">钉宫</td>
+</tr>
+<tr>
+<td align="left"><strong>魔法禁书目录</strong></td>
+<td align="left">小说好看</td>
+</tr>
+<tr>
+<td align="left"><strong>神剃</strong></td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="7月"><a href="#7月" class="headerlink" title="7月"></a>7月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>夏目友人帐</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>向阳素描 x 365 (第二季)</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>一骑当千 Great Guardians</strong></td>
+<td align="left">里番</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="4月"><a href="#4月" class="headerlink" title="4月"></a>4月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>Code Geass 反叛的鲁路修 R2</strong></td>
+<td align="left">中二</td>
+</tr>
+<tr>
+<td align="left"><strong>S.A特优生</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>超时空要塞 Frontier</strong></td>
+<td align="left">好听</td>
+</tr>
+<tr>
+<td align="left"><strong>二十面相少女</strong></td>
+<td align="left">？</td>
+</tr>
+<tr>
+<td align="left"><strong>甜甜私房猫</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>我的狐仙女友</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>我家有个狐仙大人</strong></td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="1月"><a href="#1月" class="headerlink" title="1月"></a>1月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>狼与香辛料</strong></td>
+<td align="left">赫萝</td>
+</tr>
+<tr>
+<td align="left"><strong>南家三姐妹～再来一碗～ (第二期)</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>水星领航员 The ORIGINATION</strong></td>
+<td align="left">歌曲好听</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    
+    
+    <div class="post-nav has-both">
+        
+        <a class="post-nav-item prev" href="/2026/01/28/anime-2005-2007/">
+            <span class="label">
+                <i class="fa-solid fa-angle-left fa-fw"></i>
+                上一篇
+            </span>
+            <span class="title">不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）</span>
+        </a>
+        
+        
+        <a class="post-nav-item next" href="/2026/01/26/anime-2009/">
+            <span class="label">
+                下一篇
+                <i class="fa-solid fa-angle-right fa-fw"></i>
+            </span>
+            <span class="title">不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）</span>
+        </a>
+        
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+    </div>
+    <div id="post-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">Yuki</div>
+        <div class="description">
+            <p>（yukiyukiyu</p>
+
+        </div>
+        
+        <div class="latest-posts">
+            <div class="latest-title">最新文章</div>
+            <ul class="latest-list">
+                
+                <li>
+                    <a href="/2026/01/29/anime-2601-final/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/28/anime-2005-2007/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/27/anime-2008/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/26/anime-2009/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/23/anime-2010/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/22/anime-2011/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/21/anime-2012/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/20/anime-2013/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/19/anime-2014/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/16/anime-2015/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="/atom.xml" target="_blank">
+                    <i
+                        class="fa-solid fa-rss fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy; 2022 - 2026 Yuki
+        </div>
+        <div>
+            <a href="/privacy/">Privacy Policy</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="yuki1sntSnow/yuki1sntSnow.github.io"
+    data-repo-id="R_kgDOQsmuGw"
+    data-category="General"
+    data-category-id="DIC_kwDOQsmuG84C0fIS"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang=""
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>

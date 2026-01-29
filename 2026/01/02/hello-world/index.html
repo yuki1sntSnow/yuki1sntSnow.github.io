@@ -36,8 +36,14 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
+
 
 
 
@@ -82,6 +88,11 @@
             <span>&ensp;About</span>
         </a>
         
+        <a href="/chaosboard">
+            <i class="fa-solid fa-comments fa-fw"></i>
+            <span>&ensp;ChaosBoard</span>
+        </a>
+        
         <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
             <i class="fa-solid fa-fish fa-fw"></i>
             <span>&ensp;Mo-fish</span>
@@ -123,6 +134,15 @@
                     </div>
                 </a>
                 
+                <a href="/chaosboard">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-comments fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">ChaosBoard</div>
+                    </div>
+                </a>
+                
                 <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
                     <div class="item">
                         <div style="min-width: 20px; max-width: 50px; width: 10%">
@@ -141,7 +161,9 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
+            
+<div id="post-wrap" class="has-card">
+    <div class="article">
     <div>
         <h1>Hello World</h1>
     </div>
@@ -154,11 +176,11 @@
         </span>
         
         <span class="category">
-            <a href="/categories/test/">
+            <a href="/categories/hello-world/">
                 <span class="icon">
                     <i class="fa-solid fa-bookmark fa-fw"></i>
                 </span>
-                test
+                hello-world
             </a>
         </span>
         
@@ -166,20 +188,32 @@
     </div>
     
     <div class="content" v-pre>
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+        <h1 id="Hello-World：关于这个博客"><a href="#Hello-World：关于这个博客" class="headerlink" title="Hello World：关于这个博客"></a>Hello World：关于这个博客</h1><p>由于各种机缘巧合，我决定搭建这个博客。</p>
+<p>尽管尚未完全确定未来的更新频率和具体方向，但我想这里会成为我存放思考与记录的后花园。目前的想法是主要使用<strong>中文</strong>进行写作，未来根据内容的受众或属性，也可能尝试多语言记录。</p>
+<h3 id="🌱-我计划在这里更新什么？"><a href="#🌱-我计划在这里更新什么？" class="headerlink" title="🌱 我计划在这里更新什么？"></a>🌱 我计划在这里更新什么？</h3><p>目前的规划主要集中在<strong>兴趣索引</strong>与<strong>学习笔记</strong>两个维度：</p>
+<ul>
+<li><strong>追番存档</strong>：将本地的追番记录进行简单的归档和整理，作为未来的索引查询之用。</li>
+<li><strong>博客笔记</strong>：整理阅读 **<a target="_blank" rel="noopener" href="https://kexue.fm/">科学空间</a>**（苏剑林老师）的相关心得与笔记。</li>
+<li><strong>数学重温</strong>：重新梳理数学知识体系，计划从《具体数学》(Concrete Mathematics) 开始。</li>
+</ul>
+<h3 id="🚫-这里不会有什么？"><a href="#🚫-这里不会有什么？" class="headerlink" title="🚫 这里不会有什么？"></a>🚫 这里不会有什么？</h3><p>这里是纯粹的兴趣与学习空间，大概率<strong>不会</strong>涉及具体的工作内容或私人生活琐事。</p>
+<p>希望这些记录能对自己，或许也能对路过的你有所帮助。</p>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+    </div>
+    
+    
+    
+    <div class="post-nav only-prev">
+        
+        <a class="post-nav-item prev" href="/2026/01/05/anime-2025/">
+            <span class="label">
+                <i class="fa-solid fa-angle-left fa-fw"></i>
+                上一篇
+            </span>
+            <span class="title">不仅仅是追番：一份关于热爱与时间的个人备忘录（2025篇）</span>
+        </a>
+        
+        
     </div>
     
     
@@ -192,6 +226,103 @@
     
     
     
+    </div>
+    <div id="post-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">Yuki</div>
+        <div class="description">
+            <p>（yukiyukiyu</p>
+
+        </div>
+        
+        <div class="latest-posts">
+            <div class="latest-title">最新文章</div>
+            <ul class="latest-list">
+                
+                <li>
+                    <a href="/2026/01/29/anime-2601-final/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/28/anime-2005-2007/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/27/anime-2008/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/26/anime-2009/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/23/anime-2010/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/22/anime-2011/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/21/anime-2012/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/20/anime-2013/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/19/anime-2014/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/16/anime-2015/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="/atom.xml" target="_blank">
+                    <i
+                        class="fa-solid fa-rss fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+    </div>
+</div>
+
+    </div>
 </div>
 
             <footer id="footer">

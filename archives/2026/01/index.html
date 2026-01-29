@@ -36,10 +36,17 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
 
+
+<script src="/js/lib/search.js"></script>
 
 
 
@@ -155,23 +162,462 @@
             
 <div id="archives">
     
+    <input id="search-bar" class="input" placeholder="搜索" v-model="rawSearch" />
+    
     <div id="timeline-wrap" ref="timeline">
         
         <div class="timeline" data-title="helloworld">
             <div class="timeline-tail"></div>
             <div class="timeline-content">
-                <div class="item-time">2026/1/14</div>
-                <a href="/2026/01/14/hello-world/">
+                <div class="item-time">2026/1/2</div>
+                <a href="/2026/01/02/hello-world/">
                     <h3>Hello World</h3>
                 </a>
                 <div class="info">
                     
                     <span class="category">
-                        <a href="/categories/test/">
+                        <a href="/categories/hello-world/">
                             <span class="icon">
                                 <i class="fa-solid fa-bookmark fa-fw"></i>
                             </span>
-                            test
+                            hello-world
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2025篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/5</div>
+                <a href="/2026/01/05/anime-2025/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2025篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2024篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/6</div>
+                <a href="/2026/01/06/anime-2024/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2024篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2023篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/7</div>
+                <a href="/2026/01/07/anime-2023/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2023篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2022篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/8</div>
+                <a href="/2026/01/08/anime-2022/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2022篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2020-2021篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/9</div>
+                <a href="/2026/01/09/anime-2020-2021/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2020-2021篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2019篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/12</div>
+                <a href="/2026/01/12/anime-2019/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2019篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2018篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/13</div>
+                <a href="/2026/01/13/anime-2018/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2018篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2017篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/14</div>
+                <a href="/2026/01/14/anime-2017/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2017篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2016篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/15</div>
+                <a href="/2026/01/15/anime-2016/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2016篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/16</div>
+                <a href="/2026/01/16/anime-2015/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/19</div>
+                <a href="/2026/01/19/anime-2014/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/20</div>
+                <a href="/2026/01/20/anime-2013/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/21</div>
+                <a href="/2026/01/21/anime-2012/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/22</div>
+                <a href="/2026/01/22/anime-2011/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/23</div>
+                <a href="/2026/01/23/anime-2010/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/26</div>
+                <a href="/2026/01/26/anime-2009/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/27</div>
+                <a href="/2026/01/27/anime-2008/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/28</div>
+                <a href="/2026/01/28/anime-2005-2007/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
+                        </a>
+                    </span>
+                    
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="timeline" data-title="不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）">
+            <div class="timeline-tail"></div>
+            <div class="timeline-content">
+                <div class="item-time">2026/1/29</div>
+                <a href="/2026/01/29/anime-2601-final/">
+                    <h3>不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）</h3>
+                </a>
+                <div class="info">
+                    
+                    <span class="category">
+                        <a href="/categories/animate/">
+                            <span class="icon">
+                                <i class="fa-solid fa-bookmark fa-fw"></i>
+                            </span>
+                            animate
                         </a>
                     </span>
                     

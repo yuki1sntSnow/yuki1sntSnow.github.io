@@ -36,6 +36,11 @@
 <script src="/js/lib/highlight.js"></script>
 
 
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
 
 <script src="/js/lib/preview.js"></script>
 
@@ -156,7 +161,9 @@
 </transition>
 
         <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
-            <div class="article">
+            
+<div id="post-wrap" class="has-card">
+    <div class="article">
     <div>
         <h1>About Me</h1>
     </div>
@@ -187,6 +194,7 @@
     
     
     
+    
     <div id="comment">
         <div id="giscus-container" class="giscus"></div>
     </div>
@@ -194,6 +202,103 @@
     
     
     
+    </div>
+    <div id="post-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">Yuki</div>
+        <div class="description">
+            <p>（yukiyukiyu</p>
+
+        </div>
+        
+        <div class="latest-posts">
+            <div class="latest-title">最新文章</div>
+            <ul class="latest-list">
+                
+                <li>
+                    <a href="/2026/01/29/anime-2601-final/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/28/anime-2005-2007/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/27/anime-2008/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/26/anime-2009/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/23/anime-2010/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/22/anime-2011/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/21/anime-2012/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/20/anime-2013/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/19/anime-2014/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/16/anime-2015/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="/atom.xml" target="_blank">
+                    <i
+                        class="fa-solid fa-rss fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+    </div>
+</div>
+
+    </div>
 </div>
 
             <footer id="footer">

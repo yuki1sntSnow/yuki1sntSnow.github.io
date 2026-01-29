@@ -1,0 +1,794 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>不仅仅是追番：一份关于热爱与时间的个人备忘录（2016篇） | yukiyukiyu</title>
+    <meta name="author" content="Yuki" />
+    <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
+    <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
+    />
+    <link rel="icon" href="/images/avatar.jpg" />
+    <link rel="alternate" href="/atom.xml" title="yukiyukiyu" type="application/atom+xml">
+    <link rel="preconnect" href="https://s4.zstatic.net" />
+<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+<link rel="preconnect" href="https://fonts.googleapis.cn" />
+<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+<link
+    rel="stylesheet"
+    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+/>
+<script> const mixins = {}; </script>
+
+<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link
+    rel="stylesheet"
+    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+/>
+<script src="/js/lib/highlight.js"></script>
+
+
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
+<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
+<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
+<script src="/js/lib/math.js"></script>
+
+
+<script src="/js/lib/preview.js"></script>
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/css/main.css" />
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <div id="layout">
+        <transition name="fade">
+            <div id="loading" v-show="loading">
+                <div id="loading-circle">
+                    <h2>LOADING</h2>
+                    <p>加载过慢请开启缓存 浏览器默认开启</p>
+                    <img src="/images/loading.gif" />
+                </div>
+            </div>
+        </transition>
+        <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
+    <nav id="desktop-menu">
+        <a class="title" href="/">
+            <span>YUKIYUKIYU</span>
+        </a>
+        
+        <a href="/">
+            <i class="fa-solid fa-house fa-fw"></i>
+            <span>&ensp;Home</span>
+        </a>
+        
+        <a href="/archives">
+            <i class="fa-solid fa-box-archive fa-fw"></i>
+            <span>&ensp;Archives</span>
+        </a>
+        
+        <a href="/about">
+            <i class="fa-solid fa-user fa-fw"></i>
+            <span>&ensp;About</span>
+        </a>
+        
+        <a href="/chaosboard">
+            <i class="fa-solid fa-comments fa-fw"></i>
+            <span>&ensp;ChaosBoard</span>
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
+            <i class="fa-solid fa-fish fa-fw"></i>
+            <span>&ensp;Mo-fish</span>
+        </a>
+        
+    </nav>
+    <nav id="mobile-menu">
+        <div class="title" @click="showMenuItems = !showMenuItems">
+            <i class="fa-solid fa-bars fa-fw"></i>
+            <span>&emsp;YUKIYUKIYU</span>
+        </div>
+        <transition name="slide">
+            <div class="items" v-show="showMenuItems">
+                
+                <a href="/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-house fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Home</div>
+                    </div>
+                </a>
+                
+                <a href="/archives">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-box-archive fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Archives</div>
+                    </div>
+                </a>
+                
+                <a href="/about">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-user fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">About</div>
+                    </div>
+                </a>
+                
+                <a href="/chaosboard">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-comments fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">ChaosBoard</div>
+                    </div>
+                </a>
+                
+                <a target="_blank" rel="noopener" href="https://newsnow.busiyi.world/">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-fish fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Mo-fish</div>
+                    </div>
+                </a>
+                
+            </div>
+        </transition>
+    </nav>
+</div>
+<transition name="fade">
+    <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
+</transition>
+
+        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+            
+<div id="post-wrap" class="has-card">
+    <div class="article">
+    <div>
+        <h1>不仅仅是追番：一份关于热爱与时间的个人备忘录（2016篇）</h1>
+    </div>
+    <div class="info">
+        <span class="date">
+            <span class="icon">
+                <i class="fa-solid fa-calendar fa-fw"></i>
+            </span>
+            2026/1/15
+        </span>
+        
+        <span class="category">
+            <a href="/categories/animate/">
+                <span class="icon">
+                    <i class="fa-solid fa-bookmark fa-fw"></i>
+                </span>
+                animate
+            </a>
+        </span>
+        
+        
+    </div>
+    
+    <div class="content" v-pre>
+        <h1 id="📺-追番记录整理"><a href="#📺-追番记录整理" class="headerlink" title="📺 追番记录整理"></a>📺 追番记录整理</h1><blockquote>
+<p><strong>📅 整理时间</strong>：2026.01<br><strong>🤖 备注</strong>：AI 辅助整理，如有疏漏欢迎捉虫<br><strong>📂 范围</strong>：入坑至今的追番记录 | 逆序排列</p>
+<hr>
+<p><strong>💭 碎碎念 &#x2F; 整理回顾：</strong></p>
+<p>记忆开始逐渐模糊。甚至有点恍惚：2016 年的我，到底在看些什么？</p>
+<p>印象中这一年经手翻译的作品其实不少，但回头望去，真正能在大脑皮层留下深刻印记的，似乎寥寥无几。</p>
+<p><strong>🏆 个人年度最佳：</strong></p>
+<ul>
+<li><strong>2016</strong>：🏍️ 《无头骑士异闻录》</li>
+</ul>
+<p><em>P.S. 虽然同年好作品也不少，但还是决定把票投给终于完结了的无头（笑）。剧中那些真实的东京地标，算是我圣地巡礼的启蒙之作吧（噗噗）。</em></p>
+</blockquote>
+<hr>
+<h2 id="📅-2016-追番记录"><a href="#📅-2016-追番记录" class="headerlink" title="📅 2016 追番记录"></a>📅 2016 追番记录</h2><h3 id="10月"><a href="#10月" class="headerlink" title="10月"></a>10月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>3月的狮子</strong></td>
+<td align="left">新房昭之</td>
+</tr>
+<tr>
+<td align="left"><strong>TRICKSTER 少年侦探团</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>吹响！上低音号 第二期</strong></td>
+<td align="left">好看的</td>
+</tr>
+<tr>
+<td align="left"><strong>机动战士高达 铁血的奥尔芬斯 第二期</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>数码宝贝宇宙 应用怪兽</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>文豪野犬 第二期</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>我老婆是学生会长 第二期</strong></td>
+<td align="left">记录</td>
+</tr>
+<tr>
+<td align="left"><strong>夏目友人帐 第五期</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>亚人 第二期</strong></td>
+<td align="left">-</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="7月"><a href="#7月" class="headerlink" title="7月"></a>7月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>91Days</strong></td>
+<td align="left">热血，黑手党</td>
+</tr>
+<tr>
+<td align="left"><strong>Ange Vierge</strong></td>
+<td align="left">百合工房</td>
+</tr>
+<tr>
+<td align="left"><strong>LoveLive! Sunshine!!</strong></td>
+<td align="left">LL</td>
+</tr>
+<tr>
+<td align="left"><strong>NEW GAME!</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>ReLIFE 重生计划</strong></td>
+<td align="left">可以</td>
+</tr>
+<tr>
+<td align="left"><strong>Rewrite</strong></td>
+<td align="left">Key社，可惜</td>
+</tr>
+<tr>
+<td align="left"><strong>半田君传说</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>弹丸论破3 未来篇&#x2F;绝望篇</strong></td>
+<td align="left">希望峰学园</td>
+</tr>
+<tr>
+<td align="left"><strong>东离剑游记</strong></td>
+<td align="left">老虚</td>
+</tr>
+<tr>
+<td align="left"><strong>灵能百分百</strong></td>
+<td align="left">骨头社</td>
+</tr>
+<tr>
+<td align="left"><strong>魔装学园 HxH</strong></td>
+<td align="left">肉番</td>
+</tr>
+<tr>
+<td align="left"><strong>魔法少女伊莉雅3</strong></td>
+<td align="left">不追</td>
+</tr>
+<tr>
+<td align="left"><strong>七大罪 圣战的预兆</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>驱魔少年 HALLOW</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>食戟之灵 第二期</strong></td>
+<td align="left">爆衣</td>
+</tr>
+<tr>
+<td align="left"><strong>时间旅行少女</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>新·剑风传奇</strong></td>
+<td align="left">音乐，EVA系</td>
+</tr>
+<tr>
+<td align="left"><strong>星之梦</strong></td>
+<td align="left">Key社</td>
+</tr>
+<tr>
+<td align="left"><strong>亚尔斯兰战记 风尘乱舞</strong></td>
+<td align="left">不错</td>
+</tr>
+<tr>
+<td align="left"><strong>忧郁的物怪庵</strong></td>
+<td align="left">待定，不好评价</td>
+</tr>
+<tr>
+<td align="left"><strong>这个美术部有问题</strong></td>
+<td align="left">卖萌系</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="4月"><a href="#4月" class="headerlink" title="4月"></a>4月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>endride</strong></td>
+<td align="left">12集</td>
+</tr>
+<tr>
+<td align="left"><strong>JOJO的奇妙冒险 不灭钻石</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>Joker Game</strong></td>
+<td align="left">不错剧情喜</td>
+</tr>
+<tr>
+<td align="left"><strong>Re:从零开始的异世界生活</strong></td>
+<td align="left">25集</td>
+</tr>
+<tr>
+<td align="left"><strong>超人幻想 第二期</strong></td>
+<td align="left">骨头</td>
+</tr>
+<tr>
+<td align="left"><strong>黑色残骸</strong></td>
+<td align="left">原创，黑之契约</td>
+</tr>
+<tr>
+<td align="left"><strong>火星异种 第二期</strong></td>
+<td align="left">题材可以继续</td>
+</tr>
+<tr>
+<td align="left"><strong>甲铁城的卡巴内里</strong></td>
+<td align="left">豪华阵容，原创，没收住</td>
+</tr>
+<tr>
+<td align="left"><strong>羁绊者</strong></td>
+<td align="left">原创</td>
+</tr>
+<tr>
+<td align="left"><strong>境界的轮回 第二期</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>迷家</strong></td>
+<td align="left">悬疑</td>
+</tr>
+<tr>
+<td align="left"><strong>魔笛MAGI 辛巴德的冒险</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>逆转裁判</strong></td>
+<td align="left">A1，游戏改，画风不喜</td>
+</tr>
+<tr>
+<td align="left"><strong>三者三叶</strong></td>
+<td align="left">百合工房</td>
+</tr>
+<tr>
+<td align="left"><strong>双星之阴阳师</strong></td>
+<td align="left">集英社，福山润</td>
+</tr>
+<tr>
+<td align="left"><strong>田中君总是如此慵懒</strong></td>
+<td align="left">可以</td>
+</tr>
+<tr>
+<td align="left"><strong>文豪野犬</strong></td>
+<td align="left">骨头社</td>
+</tr>
+<tr>
+<td align="left"><strong>我的英雄学院</strong></td>
+<td align="left">骨头社，埋了</td>
+</tr>
+<tr>
+<td align="left"><strong>线上游戏的老婆不可能是女生</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>熊巫女</strong></td>
+<td align="left">萌向</td>
+</tr>
+<tr>
+<td align="left"><strong>在下坂本有何贵干</strong></td>
+<td align="left">年度笑点</td>
+</tr>
+<tr>
+<td align="left"><strong>至高指令</strong></td>
+<td align="left">未来日记poi</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="1月"><a href="#1月" class="headerlink" title="1月"></a>1月</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>GATE 奇幻自卫队 第二期</strong></td>
+<td align="left">咋说呢，政治不正确</td>
+</tr>
+<tr>
+<td align="left"><strong>暗杀教室 第二期</strong></td>
+<td align="left">稳定</td>
+</tr>
+<tr>
+<td align="left"><strong>赤发白雪姬 第二期</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>春夏推理事件簿</strong></td>
+<td align="left">小说改，冰果</td>
+</tr>
+<tr>
+<td align="left"><strong>粗点心战争</strong></td>
+<td align="left">漫改，本子系列</td>
+</tr>
+<tr>
+<td align="left"><strong>红壳的潘多拉</strong></td>
+<td align="left">漫改，百合</td>
+</tr>
+<tr>
+<td align="left"><strong>黑色标记</strong></td>
+<td align="left">小说改，南条爱乃</td>
+</tr>
+<tr>
+<td align="left"><strong>灰与幻想的格林姆迦尔</strong></td>
+<td align="left">轻小说改，穿越</td>
+</tr>
+<tr>
+<td align="left"><strong>疾走王子</strong></td>
+<td align="left">游戏改，乙女向</td>
+</tr>
+<tr>
+<td align="left"><strong>历物语</strong></td>
+<td align="left">！</td>
+</tr>
+<tr>
+<td align="left"><strong>梦幻之星Online2</strong></td>
+<td align="left">游戏改，PSO2启动！</td>
+</tr>
+<tr>
+<td align="left"><strong>迷糊餐厅 完结篇</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>神赐之门</strong></td>
+<td align="left">游戏改</td>
+</tr>
+<tr>
+<td align="left"><strong>少女们向荒野进发</strong></td>
+<td align="left">Galgame改</td>
+</tr>
+<tr>
+<td align="left"><strong>噬神者</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>为美好的世界献上祝福</strong></td>
+<td align="left">轻小说改，穿越</td>
+</tr>
+<tr>
+<td align="left"><strong>维度战记</strong></td>
+<td align="left">漫改，黑之契约者</td>
+</tr>
+<tr>
+<td align="left"><strong>无头骑士异闻录×2 结</strong></td>
+<td align="left">drrrrrr</td>
+</tr>
+<tr>
+<td align="left"><strong>五彩限的怪灵世界</strong></td>
+<td align="left">轻小说改，京阿尼</td>
+</tr>
+<tr>
+<td align="left"><strong>血型君 第四期</strong></td>
+<td align="left">-</td>
+</tr>
+<tr>
+<td align="left"><strong>幸运&amp;逻辑</strong></td>
+<td align="left">原创，动画工房，鲁邦系列原案</td>
+</tr>
+<tr>
+<td align="left"><strong>亚人</strong></td>
+<td align="left">剧场，漫改，人气高</td>
+</tr>
+<tr>
+<td align="left"><strong>妖精的尾巴ZERO</strong></td>
+<td align="left">单纯记录不追</td>
+</tr>
+<tr>
+<td align="left"><strong>昭和元禄落语心中</strong></td>
+<td align="left">林原惠美</td>
+</tr>
+<tr>
+<td align="left"><strong>只有我不在的街道</strong></td>
+<td align="left">漫改，刀剑&#x2F;倒A</td>
+</tr>
+<tr>
+<td align="left"><strong>最弱无败神装机龙</strong></td>
+<td align="left">轻小说改</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="剧场-SP-OVA"><a href="#剧场-SP-OVA" class="headerlink" title="剧场&#x2F;SP&#x2F;OVA"></a>剧场&#x2F;SP&#x2F;OVA</h3><table>
+<thead>
+<tr>
+<th align="left">Title</th>
+<th align="left">Memo</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>伤物语 I 铁血篇</strong></td>
+<td align="left">2016&#x2F;1&#x2F;8，共三章</td>
+</tr>
+<tr>
+<td align="left"><strong>Code Geass 亡国的阿基特 第五章</strong></td>
+<td align="left">2016&#x2F;2&#x2F;6</td>
+</tr>
+<tr>
+<td align="left"><strong>名侦探柯南 M20 纯黑的噩梦</strong></td>
+<td align="left">2016&#x2F;4&#x2F;16</td>
+</tr>
+<tr>
+<td align="left"><strong>吹响！上低音号 剧场版</strong></td>
+<td align="left">2016&#x2F;4&#x2F;23</td>
+</tr>
+<tr>
+<td align="left"><strong>食戟之灵 OAD</strong></td>
+<td align="left">2016&#x2F;5&#x2F;2 ova</td>
+</tr>
+<tr>
+<td align="left"><strong>亚尔斯兰战记 OAD</strong></td>
+<td align="left">2016&#x2F;5&#x2F;9</td>
+</tr>
+<tr>
+<td align="left"><strong>机动战士高达 雷霆宙域</strong></td>
+<td align="left">2016&#x2F;6&#x2F;25 (总集篇)</td>
+</tr>
+<tr>
+<td align="left"><strong>宝可梦 M19 波尔凯尼恩与机巧的玛机雅娜</strong></td>
+<td align="left">2016&#x2F;7&#x2F;16 (口袋 xyz)</td>
+</tr>
+<tr>
+<td align="left"><strong>加速世界 INFINITE BURST</strong></td>
+<td align="left">2016&#x2F;7&#x2F;23</td>
+</tr>
+<tr>
+<td align="left"><strong>银魂 OAD 爱染香篇</strong></td>
+<td align="left">2016&#x2F;8&#x2F;4 (前篇)</td>
+</tr>
+<tr>
+<td align="left"><strong>伤物语 II 热血篇</strong></td>
+<td align="left">2016&#x2F;8&#x2F;19</td>
+</tr>
+<tr>
+<td align="left"><strong>维度战记 OVA</strong></td>
+<td align="left">2016&#x2F;8&#x2F;26</td>
+</tr>
+<tr>
+<td align="left"><strong>野良神 OAD</strong></td>
+<td align="left">4集 (2015-2016)</td>
+</tr>
+</tbody></table>
+
+    </div>
+    
+    
+    
+    <div class="post-nav has-both">
+        
+        <a class="post-nav-item prev" href="/2026/01/16/anime-2015/">
+            <span class="label">
+                <i class="fa-solid fa-angle-left fa-fw"></i>
+                上一篇
+            </span>
+            <span class="title">不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）</span>
+        </a>
+        
+        
+        <a class="post-nav-item next" href="/2026/01/14/anime-2017/">
+            <span class="label">
+                下一篇
+                <i class="fa-solid fa-angle-right fa-fw"></i>
+            </span>
+            <span class="title">不仅仅是追番：一份关于热爱与时间的个人备忘录（2017篇）</span>
+        </a>
+        
+    </div>
+    
+    
+    
+    
+    <div id="comment">
+        <div id="giscus-container" class="giscus"></div>
+    </div>
+    
+    
+    
+    
+    </div>
+    <div id="post-card">
+        <div id="card-style">
+    <div id="card-div">
+        <div class="avatar">
+            <img src="/images/avatar.jpg" alt="avatar" />
+        </div>
+        <div class="name">Yuki</div>
+        <div class="description">
+            <p>（yukiyukiyu</p>
+
+        </div>
+        
+        <div class="latest-posts">
+            <div class="latest-title">最新文章</div>
+            <ul class="latest-list">
+                
+                <li>
+                    <a href="/2026/01/29/anime-2601-final/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（总集篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/28/anime-2005-2007/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2005-2007篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/27/anime-2008/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2008篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/26/anime-2009/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2009篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/23/anime-2010/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2010篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/22/anime-2011/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2011篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/21/anime-2012/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2012篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/20/anime-2013/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2013篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/19/anime-2014/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2014篇）
+                    </a>
+                </li>
+                
+                <li>
+                    <a href="/2026/01/16/anime-2015/" title="不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）">
+                        不仅仅是追番：一份关于热爱与时间的个人备忘录（2015篇）
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        
+        <div class="icon-links">
+            
+            <span class="icon-link">
+                <a href="/atom.xml" target="_blank">
+                    <i
+                        class="fa-solid fa-rss fa-fw"
+                    ></i>
+                </a>
+            </span>
+            
+        </div>
+        
+        
+    </div>
+</div>
+
+    </div>
+</div>
+
+            <footer id="footer">
+    <div id="footer-wrap">
+        <div>
+            &copy; 2022 - 2026 Yuki
+        </div>
+        <div>
+            <a href="/privacy/">Privacy Policy</a>
+        </div>
+        
+    </div>
+</footer>
+
+        </div>
+        
+        <transition name="fade">
+            <div id="preview" ref="preview" v-show="previewShow">
+                <img id="preview-content" ref="previewContent" />
+            </div>
+        </transition>
+        
+    </div>
+    <script src="/js/main.js"></script>
+    
+    
+<script
+    src="https://giscus.app/client.js"
+    data-repo="yuki1sntSnow/yuki1sntSnow.github.io"
+    data-repo-id="R_kgDOQsmuGw"
+    data-category="General"
+    data-category-id="DIC_kwDOQsmuG84C0fIS"
+    data-mapping="pathname"
+    data-strict="0"
+    data-reactions-enabled="1"
+    data-emit-metadata="0"
+    data-input-position="bottom"
+    data-theme="preferred_color_scheme"
+    data-lang=""
+    crossorigin
+    async
+></script>
+
+
+
+
+
+    
+</body>
+</html>
