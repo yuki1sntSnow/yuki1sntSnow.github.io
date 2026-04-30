@@ -4,67 +4,110 @@
 <head>
     <meta charset="utf-8" />
     <title>Archives | yukiyukiyu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Yuki" />
     <meta name="description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
     <meta name="keywords" content="blog, technology, life, yukiyukiyu" />
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
-    />
-    <link rel="icon" href="/images/avatar.jpg" />
+    <meta name="theme-color" content="#fafaf7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d0d0f" media="(prefers-color-scheme: dark)" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+
+    <link rel="canonical" href="https://yukiyukiyu.com/archives/2026/page/2/" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="/images/avatar.jpg" />
+    <link rel="apple-touch-icon" href="/images/avatar.jpg" />
+
     <link rel="alternate" href="/atom.xml" title="yukiyukiyu" type="application/atom+xml">
-    <link rel="preconnect" href="https://s4.zstatic.net" />
-<script src="https://s4.zstatic.net/ajax/libs/vue/3.3.7/vue.global.prod.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-<link rel="preconnect" href="https://fonts.googleapis.cn" />
-<link rel="preconnect" href="https://fonts.gstatic.cn" crossorigin />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="yukiyukiyu" />
+    <meta property="og:title" content="yukiyukiyu" />
+    <meta property="og:description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
+    <meta property="og:url" content="https://yukiyukiyu.com/archives/2026/page/2/" />
+    <meta property="og:image" content="https://yukiyukiyu.com/images/avatar.jpg" />
+    <meta property="og:locale" content="en" />
+    
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="yukiyukiyu" />
+    <meta name="twitter:description" content="yukiyukiyu - A personal blog sharing technology, life, and thoughts." />
+    <meta name="twitter:image" content="https://yukiyukiyu.com/images/avatar.jpg" />
+
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"yukiyukiyu","url":"https://yukiyukiyu.com/","description":"yukiyukiyu - A personal blog sharing technology, life, and thoughts.","inLanguage":"en","author":{"@type":"Person","name":"Yuki"}}</script>
+
+    
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
 <link
     rel="stylesheet"
-    href="https://fonts.googleapis.cn/css2?family=Fira+Code:wght@400;500;600;700&family=Lexend:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@400;500;600;700;800;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@500;700&display=swap"
 />
-<script> const mixins = {}; </script>
 
-<script src="https://polyfill.alicdn.com/v3/polyfill.min.js?features=default"></script>
-
-
-<script src="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-<script src="https://s4.zstatic.net/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
 <link
     rel="stylesheet"
-    href="https://s4.zstatic.net/ajax/libs/highlight.js/11.9.0/styles/github.min.css"
+    href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
 />
-<script src="/js/lib/highlight.js"></script>
+
+<script>const mixins = {};</script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.min.js"></script>
 
 
-<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-<script src="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-<link rel="stylesheet" href="https://s4.zstatic.net/ajax/libs/KaTeX/0.16.9/katex.min.css" />
-<script src="/js/lib/math.js"></script>
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/styles/github.min.css"
+/>
+<script defer src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.9.0/highlight.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/highlightjs-line-numbers.js@2.8.0/dist/highlightjs-line-numbers.min.js"></script>
+<script defer src="/js/lib/highlight.js"></script>
 
 
-<script src="/js/lib/preview.js"></script>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script defer src="/js/lib/math.js"></script>
 
 
 
-<script src="/js/lib/search.js"></script>
+<script defer src="/js/lib/preview.js"></script>
+
+
+
+
+
+<script defer src="/js/lib/search.js"></script>
+
+
+
+
 
 
 
 
 <link rel="stylesheet" href="/css/main.css" />
+<link rel="stylesheet" href="/css/refresh.css" />
 
+    <script>
+        // Theme bootstrap: read user's saved choice (or fall back to system)
+        // and set data-theme on <html> BEFORE first paint to avoid a FOUC.
+        (function () {
+            try {
+                var saved = localStorage.getItem("yk-theme");
+                if (saved === "dark" || saved === "light") {
+                    document.documentElement.setAttribute("data-theme", saved);
+                }
+            } catch (_) {}
+        })();
+    </script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
     <div id="layout">
-        <transition name="fade">
-            <div id="loading" v-show="loading">
-                <div id="loading-circle">
-                    <h2>LOADING</h2>
-                    <p>加载过慢请开启缓存 浏览器默认开启</p>
-                    <img src="/images/loading.gif" />
-                </div>
-            </div>
-        </transition>
         <div id="menu" :class="{ hidden: hiddenMenu, 'menu-color': menuColor}">
     <nav id="desktop-menu">
         <a class="title" href="/">
@@ -96,6 +139,15 @@
             <span>&ensp;Mo-fish</span>
         </a>
         
+        <button
+            class="theme-toggle"
+            type="button"
+            aria-label="Toggle dark mode"
+            onclick="window.__toggleTheme && window.__toggleTheme()"
+        >
+            <i class="fa-solid fa-moon fa-fw"></i>
+            <i class="fa-solid fa-sun fa-fw"></i>
+        </button>
     </nav>
     <nav id="mobile-menu">
         <div class="title" @click="showMenuItems = !showMenuItems">
@@ -150,15 +202,42 @@
                     </div>
                 </a>
                 
+                <a href="#" @click.prevent="window.__toggleTheme && window.__toggleTheme()">
+                    <div class="item">
+                        <div style="min-width: 20px; max-width: 50px; width: 10%">
+                            <i class="fa-solid fa-circle-half-stroke fa-fw"></i>
+                        </div>
+                        <div style="min-width: 100px; max-width: 150%; width: 20%">Toggle theme</div>
+                    </div>
+                </a>
             </div>
         </transition>
     </nav>
 </div>
+<script>
+    // Persisted theme toggle. Cycle: light → dark → system (clear saved).
+    window.__toggleTheme = function () {
+        var html = document.documentElement;
+        var current = html.getAttribute("data-theme");
+        var next;
+        if (current === "light") next = "dark";
+        else if (current === "dark") next = null;          // back to system
+        else next = "light";
+
+        if (next) html.setAttribute("data-theme", next);
+        else      html.removeAttribute("data-theme");
+
+        try {
+            if (next) localStorage.setItem("yk-theme", next);
+            else      localStorage.removeItem("yk-theme");
+        } catch (_) {}
+    };
+</script>
 <transition name="fade">
     <div id="menu-curtain" @click="showMenuItems = !showMenuItems" v-show="showMenuItems"></div>
 </transition>
 
-        <div id="main" :class="loading ? 'into-enter-from': 'into-enter-active'">
+        <main id="main" class="into-enter-active">
             
 <div id="archives">
     
@@ -641,16 +720,16 @@
     </div>
 </footer>
 
-        </div>
+        </main>
         
         <transition name="fade">
             <div id="preview" ref="preview" v-show="previewShow">
-                <img id="preview-content" ref="previewContent" />
+                <img id="preview-content" ref="previewContent" alt="preview" />
             </div>
         </transition>
         
     </div>
-    <script src="/js/main.js"></script>
+    <script src="/js/main.js" defer></script>
     
 </body>
 </html>

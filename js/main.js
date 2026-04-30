@@ -1,8 +1,9 @@
+// Vue is loaded as a deferred script. By the time `defer`
+// scripts run, the DOM is parsed and Vue is on `window`.
 const app = Vue.createApp({
     mixins: Object.values(mixins),
     data() {
         return {
-            loading: true,
             hiddenMenu: false,
             showMenuItems: false,
             menuColor: false,
@@ -10,31 +11,31 @@ const app = Vue.createApp({
             renderers: [],
         };
     },
-    created() {
-        window.addEventListener("load", () => {
-            this.loading = false;
-        });
-    },
     mounted() {
         window.addEventListener("scroll", this.handleScroll, true);
         this.render();
     },
     methods: {
         render() {
-            for (let i of this.renderers) i();
+            for (const fn of this.renderers) fn();
         },
         handleScroll() {
-            let wrap = this.$refs.homePostsWrap;
-            let newScrollTop = document.documentElement.scrollTop;
-            if (this.scrollTop < newScrollTop) {
-                this.hiddenMenu = true;
-                this.showMenuItems = false;
-            } else this.hiddenMenu = false;
+            const wrap = this.$refs.homePostsWrap;
+            const newScrollTop = document.documentElement.scrollTop;
+            this.hiddenMenu = this.scrollTop < newScrollTop;
+            if (this.hiddenMenu) this.showMenuItems = false;
             if (wrap) {
-                if (newScrollTop <= window.innerHeight - 100) this.menuColor = true;
-                else this.menuColor = false;
-                if (newScrollTop <= 400) wrap.style.top = "-" + newScrollTop / 5 + "px";
-                else wrap.style.top = "-80px";
+                this.menuColor = newScrollTop <= window.innerHeight - 100;
+                // Parallax-pull the home posts wrap up — desktop only.
+                // On mobile this caused the first card title to slip
+                // under the fixed mobile-menu bar.
+                if (window.matchMedia("(min-width: 900px)").matches) {
+                    wrap.style.top = newScrollTop <= 400
+                        ? "-" + newScrollTop / 5 + "px"
+                        : "-80px";
+                } else {
+                    wrap.style.top = "0";
+                }
             }
             this.scrollTop = newScrollTop;
         },

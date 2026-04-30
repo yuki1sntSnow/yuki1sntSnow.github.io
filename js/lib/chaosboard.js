@@ -1,4 +1,4 @@
-// 混沌留言板功能
+// ChaosBoard guestbook front-end logic.
 const API_BASE = 'https://chaos-message-board.yukiyu.workers.dev';
 
 mixins.chaosboard = {
@@ -6,8 +6,8 @@ mixins.chaosboard = {
         return {
             form: {
                 username: localStorage.getItem('chaosboard_username') || '',
-                email: localStorage.getItem('chaosboard_email') || '',
-                content: ''
+                email:    localStorage.getItem('chaosboard_email')    || '',
+                content:  ''
             },
             messages: [],
             pagination: {
@@ -17,58 +17,69 @@ mixins.chaosboard = {
                 totalPages: 0
             },
             loadingMessages: true,
+            loadError: null,
             submitting: false,
             submitStatus: null
         };
     },
-    mounted() {
+    /*
+     * Fetch in `created` rather than `mounted`. Created fires before the
+     * DOM is built, so the request goes out as early as possible — by the
+     * time Vue paints, the response is often already on its way back.
+     * Avoids the "first visit shows empty until force-refresh" symptom.
+     */
+    created() {
         this.loadMessages(1);
     },
     methods: {
         async loadMessages(page = 1) {
             if (page < 1) return;
-            
+
             this.loadingMessages = true;
+            this.loadError = null;
             try {
                 const response = await fetch(
-                    `${API_BASE}/api/messages?page=${page}&pageSize=${this.pagination.pageSize}`
+                    `${API_BASE}/api/messages?page=${page}&pageSize=${this.pagination.pageSize}`,
+                    { cache: 'no-store' }
                 );
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}`);
+                }
                 const result = await response.json();
-                
+
                 if (result.success) {
-                    // 转换时间为本地时区
                     this.messages = result.data.messages.map(msg => ({
                         ...msg,
                         created_at: this.formatLocalTime(msg.created_at)
                     }));
                     this.pagination = result.data.pagination;
                 } else {
-                    console.error('加载留言失败:', result.error);
+                    this.loadError = result.error || 'Unknown server error';
                 }
             } catch (error) {
-                console.error('请求失败:', error);
+                console.error('chaosboard fetch failed:', error);
+                this.loadError = error.message || 'Network error';
             } finally {
                 this.loadingMessages = false;
             }
         },
-        
-        // 将 UTC 时间转换为本地时间
-        formatLocalTime(utcTimeStr) {
-            // API 返回格式: "2026-01-06 07:13:29" (UTC)
-            const utcDate = new Date(utcTimeStr + ' UTC');
-            
-            // 格式化为本地时间
-            const year = utcDate.getFullYear();
-            const month = String(utcDate.getMonth() + 1).padStart(2, '0');
-            const day = String(utcDate.getDate()).padStart(2, '0');
-            const hours = String(utcDate.getHours()).padStart(2, '0');
-            const minutes = String(utcDate.getMinutes()).padStart(2, '0');
-            
-            return `${year}-${month}-${day} ${hours}:${minutes}`;
+
+        retryLoad() {
+            this.loadMessages(this.pagination.page || 1);
         },
-        
+
+        // Convert UTC timestamp from API to user's local time string.
+        formatLocalTime(utcTimeStr) {
+            const utcDate = new Date(utcTimeStr + ' UTC');
+            const y  = utcDate.getFullYear();
+            const m  = String(utcDate.getMonth() + 1).padStart(2, '0');
+            const d  = String(utcDate.getDate()).padStart(2, '0');
+            const hh = String(utcDate.getHours()).padStart(2, '0');
+            const mm = String(utcDate.getMinutes()).padStart(2, '0');
+            return `${y}-${m}-${d} ${hh}:${mm}`;
+        },
+
         async submitMessage() {
-            // 验证表单
             if (!this.form.username.trim()) {
                 this.showStatus('error', '请输入用户名');
                 return;
@@ -81,62 +92,47 @@ mixins.chaosboard = {
                 this.showStatus('error', '请输入留言内容');
                 return;
             }
-            
-            // 简单邮箱格式验证
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!emailRegex.test(this.form.email)) {
                 this.showStatus('error', '请输入有效的邮箱地址');
                 return;
             }
-            
+
             this.submitting = true;
             this.submitStatus = null;
-            
+
             try {
                 const response = await fetch(`${API_BASE}/api/messages`, {
                     method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
+                    headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
                         username: this.form.username.trim(),
-                        email: this.form.email.trim(),
-                        content: this.form.content.trim()
+                        email:    this.form.email.trim(),
+                        content:  this.form.content.trim()
                     })
                 });
-                
                 const result = await response.json();
-                
+
                 if (result.success) {
-                    // 保存用户名和邮箱到本地存储
                     localStorage.setItem('chaosboard_username', this.form.username);
-                    localStorage.setItem('chaosboard_email', this.form.email);
-                    
-                    // 清空内容
+                    localStorage.setItem('chaosboard_email',    this.form.email);
                     this.form.content = '';
-                    
-                    // 显示成功消息
                     this.showStatus('success', '留言发布成功！');
-                    
-                    // 刷新留言列表（回到第一页）
                     this.loadMessages(1);
                 } else {
                     this.showStatus('error', result.error || '发布失败，请稍后重试');
                 }
             } catch (error) {
-                console.error('提交失败:', error);
+                console.error('chaosboard submit failed:', error);
                 this.showStatus('error', '网络错误，请稍后重试');
             } finally {
                 this.submitting = false;
             }
         },
-        
+
         showStatus(type, message) {
             this.submitStatus = { type, message };
-            // 3秒后自动清除状态
-            setTimeout(() => {
-                this.submitStatus = null;
-            }, 3000);
+            setTimeout(() => { this.submitStatus = null; }, 3000);
         }
     }
 };

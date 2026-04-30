@@ -210,20 +210,27 @@
     font-weight: bold;
     margin: 20px auto;
 }
+/*
+ * Use 100% width (not 100vw) so the hero never causes horizontal scroll
+ * when a scrollbar is present. Use 100dvh on mobile so the address bar
+ * showing/hiding does not cause a jumpy resize; fall back to 100vh.
+ */
 #home-head {
     display: flex;
     height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100%;
 }
 #home-head #home-background {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100vh;
+    height: 100dvh;
     left: 0;
     position: absolute;
     top: 0;
-    width: 100vw;
+    width: 100%;
     z-index: -1;
 }
 #home-head #home-info .info {
@@ -406,43 +413,17 @@
 #footer #footer-wrap {
     box-sizing: border-box;
 }
-#loading {
-    align-items: center;
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-    justify-content: center;
-    left: 0;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    word-break: keep-all;
-    z-index: 2147483647;
+/*
+ * Reserve gutter for the desktop scrollbar so content stays centered.
+ * The original theme used `margin-right: calc(100% - 100vw)`, which on
+ * mobile Safari produced a horizontal shift because `100vw` includes the
+ * scrollbar there. `scrollbar-gutter: stable` does the same thing safely.
+ */
+html {
+    scrollbar-gutter: stable;
 }
-#loading h2,
-#loading p,
-#loading img {
-    margin: 10px;
-}
-#loading img {
-    border-radius: 0;
-    height: 50px;
-}
-#loading-circle {
-    align-items: center;
-    border: 10px solid #a3ddfb;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    height: 50vmin;
-    justify-content: center;
-    padding: 50px;
-    text-align: center;
-    width: 50vmin;
-}
-#main {
-    margin-right: calc(100% - 100vw);
+body {
+    overflow-x: hidden;
 }
 #menu {
     background: #92cafa;
@@ -568,8 +549,14 @@
 #post-wrap.has-card #post-card {
     margin-top: 100px;
 }
+/* When the post card stacks under the article (tablet/mobile, see breakpoints below),
+   reset the 100px desktop gap so the card sits right after the article. */
+@media (max-width: 1200px) {
+    #post-wrap.has-card #post-card { margin-top: 30px; }
+}
 .article {
-    font-size: 15px;
+    font-size: 16px;
+    line-height: 1.75;
     margin: auto;
     margin-top: 100px;
     padding: 20px;
@@ -577,6 +564,36 @@
 .article .content {
     margin: 50px 0;
 }
+.article .content h1,
+.article .content h2,
+.article .content h3,
+.article .content h4 {
+    line-height: 1.35;
+    margin: 1.6em 0 0.6em;
+}
+.article .content h2 { font-size: 1.5em; }
+.article .content h3 { font-size: 1.25em; }
+.article .content p { margin: 0.9em 0; }
+.article .content blockquote {
+    border-left: 3px solid #c8d8f0;
+    color: #5c6b72;
+    margin: 1.2em 0;
+    padding: 0.2em 1em;
+}
+.article .content code {
+    background: #f3f5f8;
+    border-radius: 4px;
+    font-size: 0.9em;
+    padding: 0.15em 0.4em;
+}
+.article .content pre code { background: transparent; padding: 0; }
+.article .content a {
+    color: #0969da;
+    text-decoration: underline;
+    text-decoration-color: #0969da55;
+    text-underline-offset: 3px;
+}
+.article .content a:hover { text-decoration-color: #0969da; }
 .post-nav {
     display: flex;
     gap: 16px;
@@ -642,8 +659,18 @@ body::-webkit-scrollbar-track {
 .content audio,
 .content iframe {
     display: block;
+    height: auto;
     margin: 15px auto;
     max-width: 75%;
+}
+@media (max-width: 900px) {
+    /* On phones 75% is too narrow for diagrams / screenshots. */
+    .content img,
+    .content video,
+    .content audio,
+    .content iframe {
+        max-width: 100%;
+    }
 }
 .copycode {
     color: #5c6b72;
@@ -694,7 +721,8 @@ body::-webkit-scrollbar-track {
     box-sizing: border-box;
     color: #000;
     display: block;
-    font-size: 15px;
+    /* 16px keeps iOS Safari from auto-zooming when this input is focused. */
+    font-size: 16px;
     height: 50px;
     text-indent: 20px;
     transition: background 0.25s, border 0.25s, box-shadow 0.25s;
@@ -709,12 +737,15 @@ body::-webkit-scrollbar-track {
 .input:hover {
     background: #fff;
 }
-.into-enter-active {
-    transition: opacity 0.5s, transform 0.5s;
+@keyframes site-fade-in {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
-.into-enter-from {
-    opacity: 0;
-    transform: scale(1.1);
+.into-enter-active {
+    animation: site-fade-in 0.45s ease-out both;
+}
+@media (prefers-reduced-motion: reduce) {
+    .into-enter-active { animation: none; }
 }
 .katex {
     white-space: normal !important;
@@ -1065,6 +1096,11 @@ ol li {
     }
 }
 @media (max-width: 900px) {
+    /* Give the post list a hard 60px buffer below the fixed mobile menu
+       so the first card title is never partially hidden behind it. */
+    #home-posts-wrap {
+        padding-top: 60px;
+    }
     #home-head #home-info {
         height: 350px;
         width: 350px;
@@ -1387,5 +1423,27 @@ ol li {
     }
     #chaosboard .chaosboard-form {
         padding: 20px;
+    }
+    /*
+     * iOS Safari auto-zooms when a focused input has font-size < 16px.
+     * Bump only on small screens so desktop layout is unchanged.
+     */
+    #chaosboard .form-group input,
+    #chaosboard .form-group textarea {
+        font-size: 16px;
+    }
+    #chaosboard .submit-btn {
+        width: 100%;
+    }
+    #chaosboard .pagination {
+        gap: 10px;
+    }
+    #chaosboard .pagination button {
+        padding: 10px 14px;
+        font-size: 14px;
+    }
+    /* Avoid the huge desktop footer margin on small screens. */
+    #footer {
+        margin-top: 60px;
     }
 }
