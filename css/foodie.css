@@ -1,0 +1,527 @@
+:root {
+    --chef-red: #d94335;
+    --chef-red-dark: #b92f24;
+    --chef-cream: #fffaf2;
+    --chef-ink: #201b18;
+    --chef-line: rgba(32, 27, 24, 0.12);
+}
+
+[data-theme="dark"] {
+    --chef-cream: #211b17;
+    --chef-ink: #fff8ee;
+    --chef-line: rgba(255, 248, 238, 0.13);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --chef-cream: #211b17;
+        --chef-ink: #fff8ee;
+        --chef-line: rgba(255, 248, 238, 0.13);
+    }
+}
+
+#foodie-feed,
+#recipe-page {
+    box-sizing: border-box;
+    color: var(--chef-ink);
+    margin: 0 auto;
+    max-width: 1180px;
+    min-height: calc(100vh - 140px);
+    padding: 118px 28px 72px;
+}
+
+.foodie-intro {
+    align-items: center;
+    border-bottom: 1px solid var(--chef-line);
+    display: grid;
+    gap: 34px;
+    grid-template-columns: 128px minmax(0, 1fr);
+    margin-bottom: 44px;
+    padding: 12px 3vw 42px;
+}
+
+.foodie-avatar {
+    align-items: center;
+    background: var(--chef-red);
+    border: 3px solid var(--chef-cream);
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px var(--chef-line);
+    color: #fff;
+    display: inline-flex;
+    flex: 0 0 auto;
+    font-family: var(--font-serif);
+    font-size: 18px;
+    font-style: italic;
+    font-weight: 700;
+    height: 42px;
+    justify-content: center;
+    width: 42px;
+}
+
+.foodie-avatar-large {
+    border-width: 5px;
+    font-size: 52px;
+    height: 118px;
+    width: 118px;
+}
+
+.foodie-kicker {
+    color: var(--chef-red);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    margin-bottom: 8px;
+}
+
+.foodie-intro h1,
+.recipe-head h1 {
+    color: var(--chef-ink);
+    font-family: var(--font-serif);
+    font-size: clamp(38px, 6vw, 68px);
+    font-weight: 600;
+    letter-spacing: -0.045em;
+    line-height: 1.02;
+    margin: 0;
+}
+
+.foodie-intro-copy > p {
+    color: var(--text-soft);
+    font-size: 15px;
+    line-height: 1.8;
+    margin: 18px 0 16px;
+    max-width: 680px;
+}
+
+.foodie-stats {
+    display: flex;
+    gap: 24px;
+    font-size: 13px;
+}
+
+.foodie-stats strong {
+    color: var(--chef-ink);
+    font-size: 16px;
+    margin-right: 4px;
+}
+
+.foodie-grid {
+    align-items: start;
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.foodie-card {
+    background: var(--chef-cream);
+    border: 1px solid var(--chef-line);
+    border-radius: 18px;
+    box-shadow: 0 2px 18px rgba(32, 27, 24, 0.04);
+    min-width: 0;
+    overflow: hidden;
+}
+
+.foodie-card-head {
+    align-items: center;
+    display: flex;
+    gap: 11px;
+    padding: 14px 16px;
+}
+
+.foodie-card-head > div:nth-child(2) {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    line-height: 1.35;
+}
+
+.foodie-card-head strong { color: var(--chef-ink); font-size: 13px; }
+.foodie-card-head span { color: var(--text-muted); font-size: 11px; }
+.foodie-card-head .foodie-location {
+    color: var(--chef-ink);
+    font-size: 13px;
+    font-weight: 600;
+}
+.foodie-card-head > i { color: var(--text-muted); }
+
+.foodie-gallery {
+    aspect-ratio: 4 / 4.15;
+    background: var(--bg-muted);
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 1.35fr 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    overflow: hidden;
+}
+
+.foodie-gallery-item {
+    margin: 0;
+    min-height: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.foodie-gallery-item:first-child { grid-row: 1 / 3; }
+.foodie-gallery.count-1 { display: block; }
+.foodie-gallery.count-2 { grid-template-rows: 1fr; }
+.foodie-gallery.count-2 .foodie-gallery-item:first-child { grid-row: auto; }
+
+.foodie-gallery img,
+.recipe-photo img,
+.chef-carousel-slide img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.45s ease;
+    width: 100%;
+}
+
+.foodie-gallery:hover img { transform: scale(1.025); }
+
+/* One to three photos use an Instagram-like manual carousel. */
+.chef-carousel {
+    background: var(--bg-muted);
+    overflow: hidden;
+    position: relative;
+}
+
+.foodie-carousel { aspect-ratio: 4 / 4.15; }
+.recipe-carousel {
+    aspect-ratio: auto;
+    background: transparent;
+    border-radius: 16px;
+    margin: 0 auto 62px;
+    max-width: 980px;
+}
+
+.chef-carousel-track,
+.chef-carousel-slide { height: 100%; width: 100%; }
+.chef-carousel-slide {
+    display: block;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    transition: opacity 0.28s ease;
+    visibility: hidden;
+}
+.chef-carousel-slide.is-active {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+.chef-carousel-slide img { height: 100%; object-fit: cover; width: 100%; }
+.recipe-carousel .chef-carousel-track { height: auto; }
+.recipe-carousel .chef-carousel-slide {
+    display: none;
+    height: auto;
+    position: relative;
+}
+.recipe-carousel .chef-carousel-slide.is-active { display: block; }
+.recipe-carousel .chef-carousel-slide img {
+    height: auto;
+    object-fit: contain;
+    width: 100%;
+}
+.foodie-carousel:hover .chef-carousel-slide.is-active img { transform: scale(1.02); }
+
+.chef-carousel-arrow {
+    align-items: center;
+    background: rgba(255, 255, 255, 0.9);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.18);
+    color: #2a2420;
+    cursor: pointer;
+    display: flex;
+    height: 34px;
+    justify-content: center;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: opacity 0.18s, transform 0.18s;
+    width: 34px;
+    z-index: 2;
+}
+.chef-carousel:hover .chef-carousel-arrow,
+.chef-carousel:focus-within .chef-carousel-arrow { opacity: 1; }
+.chef-carousel-arrow:hover { transform: translateY(-50%) scale(1.07); }
+.chef-carousel-arrow.is-prev { left: 12px; }
+.chef-carousel-arrow.is-next { right: 12px; }
+
+.chef-carousel-dots {
+    bottom: 13px;
+    display: flex;
+    gap: 6px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    z-index: 2;
+}
+.chef-carousel-dots button {
+    background: rgba(255, 255, 255, 0.65);
+    border: 0;
+    border-radius: 50%;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    height: 7px;
+    padding: 0;
+    transition: background 0.18s, transform 0.18s;
+    width: 7px;
+}
+.chef-carousel-dots button.is-active { background: #fff; transform: scale(1.35); }
+.recipe-carousel figcaption {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.68));
+    bottom: 0;
+    color: #fff;
+    left: 0;
+    padding: 48px 22px 24px;
+    position: absolute;
+    right: 0;
+}
+
+.foodie-more {
+    align-items: center;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    display: flex;
+    font-size: 23px;
+    inset: 0;
+    justify-content: center;
+    position: absolute;
+}
+
+.foodie-actions {
+    display: flex;
+    font-size: 21px;
+    gap: 16px;
+    padding: 15px 17px 8px;
+}
+
+.foodie-actions i:last-child { margin-left: auto; }
+
+.foodie-card-body { padding: 0 17px 20px; }
+.foodie-card-body h2 {
+    color: var(--chef-ink);
+    font-family: var(--font-serif);
+    font-size: 25px;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin: 6px 0 10px;
+}
+
+.foodie-card-body p {
+    color: var(--text-soft);
+    display: -webkit-box;
+    font-size: 13px;
+    line-height: 1.7;
+    margin: 12px 0;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.foodie-dishes { display: flex; flex-wrap: wrap; gap: 6px 12px; }
+.foodie-dishes span { color: var(--chef-red); font-size: 12px; font-weight: 600; }
+.foodie-read { color: var(--text-muted); font-size: 12px; font-weight: 600; }
+.foodie-read i { font-size: 10px; margin-left: 5px; transition: transform 0.2s; }
+.foodie-read:hover { color: var(--chef-red); }
+.foodie-read:hover i { transform: translateX(3px); }
+.foodie-empty { padding: 80px 20px; text-align: center; }
+
+/* Recipe detail */
+.recipe-back {
+    color: var(--text-muted);
+    display: inline-block;
+    font-size: 13px;
+    margin-bottom: 30px;
+}
+.recipe-back:hover { color: var(--chef-red); }
+.recipe-back i { margin-right: 7px; }
+
+.recipe-head {
+    margin: 0 auto 46px;
+    max-width: 850px;
+    text-align: center;
+}
+
+.recipe-head .foodie-card-head {
+    justify-content: center;
+    margin-bottom: 28px;
+    padding: 0;
+    text-align: left;
+}
+.recipe-head .foodie-card-head > div:nth-child(2) { flex: 0 1 auto; }
+.recipe-lead {
+    color: var(--text-soft);
+    font-family: var(--font-serif);
+    font-size: 18px;
+    line-height: 1.7;
+    margin: 22px auto;
+    max-width: 700px;
+}
+
+.recipe-menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 28px;
+}
+
+.recipe-menu span {
+    align-items: center;
+    background: var(--accent-bg);
+    border: 1px solid var(--chef-line);
+    border-radius: 999px;
+    display: inline-flex;
+    font-size: 13px;
+    gap: 7px;
+    padding: 8px 13px 8px 9px;
+}
+.recipe-menu small {
+    align-items: center;
+    background: var(--chef-red);
+    border-radius: 50%;
+    color: #fff;
+    display: inline-flex;
+    font-size: 9px;
+    height: 22px;
+    justify-content: center;
+    width: 22px;
+}
+
+.recipe-gallery {
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: 0 auto 62px;
+}
+.recipe-photo {
+    border-radius: 14px;
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+.recipe-photo img {
+    height: auto;
+    object-fit: contain;
+    width: 100%;
+}
+.recipe-photo figcaption {
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.65));
+    bottom: 0;
+    color: #fff;
+    font-size: 12px;
+    left: 0;
+    padding: 28px 14px 12px;
+    position: absolute;
+    right: 0;
+}
+
+.recipe-content {
+    background: var(--chef-cream);
+    border: 1px solid var(--chef-line);
+    border-radius: 20px;
+    box-sizing: border-box;
+    color: var(--text-soft);
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.95;
+    margin: 0 auto;
+    max-width: 780px;
+    padding: clamp(28px, 6vw, 66px);
+}
+.recipe-content h2,
+.recipe-content h3 {
+    color: var(--chef-ink);
+    font-family: var(--font-sans);
+    letter-spacing: -0.02em;
+    margin-top: 2.2em;
+}
+.recipe-content h2:first-child { margin-top: 0; }
+.recipe-content strong { color: var(--chef-ink); }
+.recipe-content blockquote { border-left-color: var(--chef-red); }
+
+.recipe-footer {
+    align-items: center;
+    border-top: 1px solid var(--chef-line);
+    display: flex;
+    gap: 13px;
+    margin: 52px auto 0;
+    max-width: 780px;
+    padding-top: 24px;
+}
+.recipe-footer p { color: var(--text-muted); flex: 1; font-size: 12px; line-height: 1.5; margin: 0; }
+.recipe-footer strong { color: var(--chef-ink); font-size: 13px; }
+.recipe-footer > a { color: var(--chef-red); font-size: 12px; font-weight: 700; }
+
+@media (max-width: 760px) {
+    #foodie-feed,
+    #recipe-page { padding: 84px 0 42px; }
+
+    .foodie-intro {
+        gap: 18px;
+        grid-template-columns: 76px 1fr;
+        margin: 0 16px 22px;
+        padding: 14px 4px 26px;
+    }
+    .foodie-avatar-large { border-width: 3px; font-size: 31px; height: 72px; width: 72px; }
+    .foodie-intro h1 { font-size: clamp(30px, 9vw, 42px); }
+    .foodie-intro-copy > p { font-size: 13px; grid-column: 1 / -1; margin: 12px 0 0; }
+    .foodie-stats { font-size: 11px; gap: 14px; margin-top: 10px; }
+    .foodie-stats strong { font-size: 13px; }
+    .foodie-kicker { font-size: 9px; }
+
+    .foodie-grid { display: block; }
+    .foodie-card { border-left: 0; border-radius: 0; border-right: 0; box-shadow: none; margin-bottom: 14px; }
+    .foodie-gallery { aspect-ratio: 1 / 1; }
+    .foodie-carousel { aspect-ratio: 1 / 1; }
+    .chef-carousel-arrow { height: 30px; opacity: 0.88; width: 30px; }
+    .foodie-card-body h2 { font-size: 22px; }
+
+    .recipe-back { margin: 0 18px 28px; }
+    .recipe-head { padding: 0 20px; }
+    .recipe-head h1 { font-size: clamp(38px, 12vw, 56px); }
+    .recipe-lead { font-size: 16px; }
+    .recipe-menu { justify-content: flex-start; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; flex-wrap: nowrap; }
+    .recipe-menu::-webkit-scrollbar { display: none; }
+    .recipe-menu span { flex: 0 0 auto; }
+
+    .recipe-gallery {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 36px;
+        overflow-x: auto;
+        padding: 0 16px 10px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+    }
+    .recipe-gallery::-webkit-scrollbar { display: none; }
+    .recipe-carousel {
+        aspect-ratio: auto;
+        border-radius: 0;
+        margin-bottom: 36px;
+    }
+    .recipe-photo,
+    .recipe-photo:first-child,
+    .recipe-photo:nth-child(4n) {
+        flex: 0 0 84vw;
+        height: auto;
+        min-height: 0;
+        scroll-snap-align: center;
+    }
+    .recipe-content { border-left: 0; border-radius: 0; border-right: 0; font-size: 16px; padding: 36px 22px; }
+    .recipe-footer { margin: 36px 18px 0; }
+}
+
+@media (min-width: 761px) and (max-width: 980px) {
+    .foodie-grid { gap: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .foodie-gallery img,
+    .foodie-read i { transition: none; }
+}
